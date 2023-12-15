@@ -23,6 +23,9 @@
       let hour = Math.floor(Math.abs(totalTime) / 3600);
       let minutes = Math.floor((Math.abs(totalTime) - hour * 3600) / 60);
       let seconds = Math.abs(totalTime) - (hour * 3600) - (minutes * 60);
+      if (hour < 10) hour = `0${hour}`;
+      if (minutes < 10) minutes = `0${minutes}`;
+      if (seconds < 10) seconds = `0${seconds}`;
 
       result += `${hour}:${minutes}:${seconds}`;
       return result;
