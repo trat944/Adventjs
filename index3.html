@@ -16,7 +16,7 @@
         totalTime += Number(eachElement[0] * 3600);
       })
       let result = '';
-      if (totalTime > 7 * 3600) {
+      if (totalTime < 7 * 3600) {
         result += '-';
       }
       totalTime = totalTime - 7 * 3600;
