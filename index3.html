@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function calculateTime(deliveries) {
+      let totalTime = 0;
+      deliveries.forEach((element) => {
+        const eachElement = element.split(':');
+        totalTime += Number(eachElement[2]);
+        totalTime += Number(eachElement[1] * 60);
+        totalTime += Number(eachElement[0] * 3600);
+      })
+      let result = '';
+      if (totalTime > 7 * 3600) {
+        result += '-';
+      }
+      totalTime = totalTime - 7 * 3600;
+      let hour = Math.floor(Math.abs(totalTime) / 3600);
+      let minutes = Math.floor((Math.abs(totalTime) - hour * 3600) / 60);
+      let seconds = Math.abs(totalTime) - (hour * 3600) - (minutes * 60);
+
+      result += `${hour}:${minutes}:${seconds}`;
+      return result;
+    }
+    
+    console.log(calculateTime(['00:10:00', '01:00:00', '03:30:00']));
+  </script>
+</body>
+</html>
